@@ -44,8 +44,10 @@ function displayAnalogClock() {
             numberOnMark.className = 'numberOnMark'
             numberOnMark.innerHTML = String((i / 5) % 12 + 1)
             const numberAngle = Math.PI / 2.0 - Math.PI * (i + 5) * 6 / 180.0
-            const xFromCenter = parseInt(1.1 * clockRadius * Math.cos(numberAngle)) - 10
-            const yFromCenter = -parseInt(1.1 * clockRadius * Math.sin(numberAngle))
+            const numberWidth = 30
+            const numberHeight = 20
+            const xFromCenter = parseInt(1.15 * clockRadius * Math.cos(numberAngle) - numberWidth / 2)
+            const yFromCenter = -parseInt(1.15 * clockRadius * Math.sin(numberAngle) + numberHeight / 2)
             numberOnMark.style.transform = `translateY(110px) translate(${xFromCenter}px, ${yFromCenter}px)`
             marksContainer.appendChild(numberOnMark);
         }
