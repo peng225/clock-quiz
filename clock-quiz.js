@@ -81,7 +81,7 @@ submitButton.addEventListener('click', () => {
     const inputMinute = Number(inputHourAndMinute[1])
     const isCorrect = (inputHour === hour && inputMinute === minute + minDiff);
     answerMinute = minute + minDiff
-    resultMessage.textContent = isCorrect ? '正解' : `不正解 (${hour}じ${answerMinute}ふん)`;
+    resultMessage.textContent = isCorrect ? 'せいかい！' : `ざんねん (${hour}じ${answerMinute}ふん)`;
 });
 
 nextQuizButton.addEventListener('click', () => {
