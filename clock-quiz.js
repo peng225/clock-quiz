@@ -1,8 +1,4 @@
-// HTML要素の取得
-const hourHand = document.getElementById('hourHand');
-const minuteHand = document.getElementById('minuteHand');
 const inputTime = document.getElementById('inputTime');
-const marksContainer = document.getElementById('marksContainer');
 const submitButton = document.getElementById('submitButton');
 const nextQuizButton = document.getElementById('nextQuizButton');
 const resultMessage = document.getElementById('resultMessage');
@@ -27,10 +23,13 @@ function displayAnalogClock() {
     const minuteAngle = minute * 6; // 1分あたり6度
 
     // 針の回転を適用
+    const hourHand = document.getElementById('hourHand');
+    const minuteHand = document.getElementById('minuteHand');
     hourHand.style.transform = `translateY(40px) rotate(${hourAngle}deg)`;
     minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
 
     // 目盛りを表示
+    const marksContainer = document.getElementById('marksContainer');
     marksContainer.innerHTML = '';
     clockRadius = 150
     for (let i = 0; i < 60; i++) {
