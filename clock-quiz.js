@@ -11,6 +11,7 @@ const levelSetting = document.getElementById('levelSetting');
 let hour = 0
 let minute = 0
 let level = 1
+let minDiff = 0
 
 // アナログ時計の表示
 function displayAnalogClock() {
@@ -43,7 +44,7 @@ function displayAnalogClock() {
             // 時計の数字を表示
             numberOnMark.className = 'numberOnMark'
             numberOnMark.innerHTML = String((i / 5) % 12 + 1)
-            const numberAngle = Math.PI / 2.0 - Math.PI * (i+5) * 6 / 180.0
+            const numberAngle = Math.PI / 2.0 - Math.PI * (i + 5) * 6 / 180.0
             const xFromCenter = parseInt(1.1 * clockRadius * Math.cos(numberAngle)) - 10
             const yFromCenter = -parseInt(1.1 * clockRadius * Math.sin(numberAngle))
             numberOnMark.style.transform = `translateY(110px) translate(${xFromCenter}px, ${yFromCenter}px)`
@@ -55,22 +56,40 @@ function displayAnalogClock() {
     }
 }
 
+function setQuestion() {
+    const question = document.getElementById('question');
+    if (level === 1 || level === 2) {
+        minDiff = 0
+        question.innerHTML = "いま なんじ・なんふん でしょう？"
+        return
+    }
+    let maxMinDiff = 0
+    if (level === 3) {
+        maxMinDiff = 10
+    }
+    minDiff = Math.floor(Math.random() * maxMinDiff);
+    question.innerHTML = `${minDiff}ふんご は なんじ・なんふん でしょう？`
+}
+
 // 初回表示
 displayAnalogClock();
+setQuestion();
 
 // 提出ボタンのクリックイベント
 submitButton.addEventListener('click', () => {
     const inputHourAndMinute = inputTime.value.split(":")
     const inputHour = Number(inputHourAndMinute[0])
     const inputMinute = Number(inputHourAndMinute[1])
-    const isCorrect = (inputHour === hour && inputMinute == minute);
-    resultMessage.textContent = isCorrect ? '正解' : `不正解 (${hour}じ${minute}ふん)`;
+    const isCorrect = (inputHour === hour && inputMinute === minute + minDiff);
+    answerMinute = minute + minDiff
+    resultMessage.textContent = isCorrect ? '正解' : `不正解 (${hour}じ${answerMinute}ふん)`;
 });
 
 nextQuizButton.addEventListener('click', () => {
     resultMessage.textContent = ""
     inputTime.value = "00:00"
     displayAnalogClock();
+    setQuestion();
 })
 
 levelSetting.addEventListener('input', () => {
