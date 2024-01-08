@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+#clockContainer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    margin-left: 200px;
+}
+
+#hourHand,
+#minuteHand {
+    position: absolute;
+    transform-origin: 50% 100%;
+}
+
+#hourHand {
+    width: 8px;
+    height: 80px;
+    background-color: #E41C00;
+}
+
+#minuteHand {
+    width: 4px;
+    height: 120px;
+    background-color: #E49A00;
+}
+
+.hourMark,
+.minuteMark {
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background-color: #00E480;
+    transform-origin: 50% 100%;
+}
+
+.hourMark {
+    height: 20px;
+    background-color: #0054E4
+}
+
+.numberOnMark {
+    position: absolute;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+}
+
+#resultMessage {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+#quiz {
+    margin-left: 20px;
+}

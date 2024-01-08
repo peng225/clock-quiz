@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>とけいクイズ</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <div id="clockContainer">
+        <div id="hourHand"></div>
+        <div id="minuteHand"></div>
+        <div id="marksContainer"></div>
+    </div>
+
+    <div id="quiz">
+        いまなんじでしょう？
+        <br />
+        <input type="time" id="inputTime" name="じこく" value="00:00" min="00:00" max="11:59" required />
+        <button id="submitButton">こたえあわせ</button>
+        <p id="resultMessage"></p>
+        <button id="nextQuizButton">つぎのもんだい</button>
+    </div>
+
+    <script src="clock-quiz.js"></script>
+</body>
+
+</html>
