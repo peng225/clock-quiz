@@ -1,7 +1,9 @@
 const inputTime = document.getElementById('inputTime');
 const submitButton = document.getElementById('submitButton');
+const showAnswerButton = document.getElementById('showAnswerButton');
 const nextQuizButton = document.getElementById('nextQuizButton');
 const resultMessage = document.getElementById('resultMessage');
+const answerMessage = document.getElementById('answerMessage');
 const levelSetting = document.getElementById('levelSetting');
 
 let hour = 0
@@ -76,18 +78,22 @@ function setQuestion() {
 displayAnalogClock();
 setQuestion();
 
-// 提出ボタンのクリックイベント
 submitButton.addEventListener('click', () => {
     const inputHourAndMinute = inputTime.value.split(":")
     const inputHour = Number(inputHourAndMinute[0])
     const inputMinute = Number(inputHourAndMinute[1])
     const isCorrect = (inputHour === hour && inputMinute === minute + minDiff);
     answerMinute = minute + minDiff
-    resultMessage.textContent = isCorrect ? 'せいかい！' : `ざんねん (${hour}じ${answerMinute}ふん)`;
+    resultMessage.textContent = isCorrect ? 'せいかい！' : 'ざんねん';
 });
+
+showAnswerButton.addEventListener('click', () => {
+    answerMessage.textContent = `こたえ： ${hour}じ${answerMinute}ふん`;
+})
 
 nextQuizButton.addEventListener('click', () => {
     resultMessage.textContent = ""
+    answerMessage.textContent = ""
     inputTime.value = "00:00"
     displayAnalogClock();
     setQuestion();
