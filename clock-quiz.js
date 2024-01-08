@@ -83,11 +83,11 @@ submitButton.addEventListener('click', () => {
     const inputHour = Number(inputHourAndMinute[0])
     const inputMinute = Number(inputHourAndMinute[1])
     const isCorrect = (inputHour === hour && inputMinute === minute + minDiff);
-    answerMinute = minute + minDiff
     resultMessage.textContent = isCorrect ? 'せいかい！' : 'ざんねん';
 });
 
 showAnswerButton.addEventListener('click', () => {
+    answerMinute = minute + minDiff
     answerMessage.textContent = `こたえ： ${hour}じ${answerMinute}ふん`;
 })
 
