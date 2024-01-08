@@ -6,14 +6,20 @@ const marksContainer = document.getElementById('marksContainer');
 const submitButton = document.getElementById('submitButton');
 const nextQuizButton = document.getElementById('nextQuizButton');
 const resultMessage = document.getElementById('resultMessage');
+const levelSetting = document.getElementById('levelSetting');
+
 let hour = 0
 let minute = 0
+let level = 1
 
 // アナログ時計の表示
 function displayAnalogClock() {
     // ランダムな時刻を生成
     hour = Math.floor(Math.random() * 12) + 1; // 1から12までのランダムな時刻
     minute = Math.floor(Math.random() * 60); // 0から59までのランダムな分
+    if (level === 1) {
+        minute = Math.floor(minute / 5) * 5;
+    }
 
     // 時針と分針の角度を計算
     const hourAngle = (hour % 12) * 30 + minute / 2; // 1時間あたり30度
@@ -65,4 +71,8 @@ nextQuizButton.addEventListener('click', () => {
     resultMessage.textContent = ""
     inputTime.value = "00:00"
     displayAnalogClock();
+})
+
+levelSetting.addEventListener('input', () => {
+    level = Number(levelSetting.value);
 })
