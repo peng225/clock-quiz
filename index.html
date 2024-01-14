@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1>とけいクイズ</h1>
     <div id="clockContainer">
         <div id="hourHand"></div>
         <div id="minuteHand"></div>
@@ -16,8 +17,11 @@
     </div>
 
     <div id="quiz">
-        <p id="question"></p>
+        <div id="questionContainer" dataTitle="もんだい">
+            <p id="question"></p>
+        </div>
         <input type="time" id="inputTime" name="じこく" value="00:00" min="00:00" max="11:59" required />
+        <br />
         <button id="submitButton">こたえあわせ</button>
         <button id="showAnswerButton">こたえをみる</button>
         <p id="resultMessage"></p>

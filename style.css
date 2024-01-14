@@ -4,13 +4,15 @@
     font-size: large;
 }
 
+h1 {
+    margin-left: 10px;
+}
+
 #clockContainer {
     position: relative;
-    width: 300px;
-    height: 300px;
-    margin-top: 70px;
-    margin-bottom: 20px;
-    margin-left: 200px;
+    width: 380px;
+    height: 380px;
+    margin: 10px 10px;
 }
 
 #hourHand,
@@ -58,5 +60,88 @@
 }
 
 #quiz {
-    margin-left: 20px;
+    margin-left: 10px;
+}
+
+#questionContainer {
+    position: relative;
+    padding-left: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    border: 2px solid #04AFFE;
+    background-color: #e2feff;
+}
+
+#questionContainer::before {
+    position: absolute;
+    top: -2.5rem;
+    left: -2px;
+    padding: 0.5rem;
+    background-color: #04AFFE;
+    color: white;
+    content: attr(dataTitle);
+}
+
+#questionContainer p {
+    color: #333;
+    line-height: 1.5;
+}
+
+button#submitButton {
+    position: relative;
+    background-color: #1980FF;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+button#showAnswerButton {
+    position: relative;
+    background-color: white;
+    color: #1980FF;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 2px solid #1980FF;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+button#nextQuizButton {
+    position: relative;
+    background-color: #1980FF;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+button#nextQuizButton::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    margin-top: -5px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    transform: rotate(-90deg);
 }
