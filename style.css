@@ -10,8 +10,8 @@ h1 {
 
 #clockContainer {
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: 320px;
+    height: 320px;
     margin: 10px 10px;
 }
 
@@ -23,13 +23,13 @@ h1 {
 
 #hourHand {
     width: 8px;
-    height: 80px;
+    height: 70px;
     background-color: #E41C00;
 }
 
 #minuteHand {
     width: 4px;
-    height: 120px;
+    height: 110px;
     background-color: #E49A00;
 }
 
@@ -66,32 +66,32 @@ h1 {
 #questionContainer {
     position: relative;
     padding-left: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.5rem;
     border: 2px solid #04AFFE;
     background-color: #e2feff;
 }
 
 #questionContainer::before {
     position: absolute;
-    top: -2.5rem;
+    top: -2.2rem;
     left: -2px;
-    padding: 0.5rem;
+    padding: 0.3rem;
     background-color: #04AFFE;
     color: white;
     content: attr(dataTitle);
 }
 
 #questionContainer p {
-    color: #333;
-    line-height: 1.5;
+    margin-block-start: 0.8em;
+    margin-block-end: 0.8em;
 }
 
 button#submitButton {
     position: relative;
     background-color: #1980FF;
     color: white;
-    padding: 10px 28px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -108,7 +108,7 @@ button#showAnswerButton {
     position: relative;
     background-color: white;
     color: #1980FF;
-    padding: 10px 28px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

@@ -27,20 +27,22 @@ function displayAnalogClock() {
     // 針の回転を適用
     const hourHand = document.getElementById('hourHand');
     const minuteHand = document.getElementById('minuteHand');
-    const halfClockContainerSize = 190;
-    const diffMinAndHourHand = 40;
-    const yOffset = 70;
+    const halfClockContainerSize = 160;
+    const diffHourAndMinHandHeight = 40;
+    const diffHourAndMinHandWidth = 4;
+    const yOffset = 40;
     hourHand.style.transform = `translateX(${halfClockContainerSize}px) translateY(` +
-        String(diffMinAndHourHand + yOffset) + `px) rotate(${hourAngle}deg)`;
-    minuteHand.style.transform = `translateX(${halfClockContainerSize}px) translateY(${yOffset}px) rotate(${minuteAngle}deg)`;
+        String(diffHourAndMinHandHeight + yOffset) + `px) rotate(${hourAngle}deg)`;
+    minuteHand.style.transform = "translateX(" + String(halfClockContainerSize + diffHourAndMinHandWidth/2) +
+        `px) translateY(${yOffset}px) rotate(${minuteAngle}deg)`;
 
     // 目盛りを表示
     const marksContainer = document.getElementById('marksContainer');
     marksContainer.innerHTML = '';
-    clockRadius = 150
+    clockRadius = 130
     for (let i = 0; i < 60; i++) {
         const mark = document.createElement('div');
-        let initialTranslate = 110 + yOffset
+        let initialTranslate = 100 + yOffset
         const diffHourAndMinuteMark = 10;
         mark.className = 'minuteMark'
         if (i % 5 === 0) {
@@ -55,12 +57,15 @@ function displayAnalogClock() {
             const numberHeight = 20
             const xFromCenter = parseInt(1.15 * clockRadius * Math.cos(numberAngle) - numberWidth / 2)
             const yFromCenter = -parseInt(1.15 * clockRadius * Math.sin(numberAngle) + numberHeight / 2)
-            numberOnMark.style.transform = `translateX(${halfClockContainerSize}px) translateY(` +
-                String(115 + yOffset) + `px) translate(${ xFromCenter }px, ${ yFromCenter }px)`
+            numberOnMark.style.transform = "translateX(" + String(halfClockContainerSize + 4) +
+                `px) translateY(` +
+                String(106 + yOffset) + `px) translate(${xFromCenter}px, ${yFromCenter}px)`
             marksContainer.appendChild(numberOnMark);
         }
         const angle = i * 6;
-        mark.style.transform = `translateX(${halfClockContainerSize}px) translateY(${initialTranslate}px) rotate(${angle}deg) translate(0, ${clockRadius}px)`;
+        const halfHourHandWidth = 4;
+        mark.style.transform = "translateX(" + String(halfClockContainerSize + halfHourHandWidth) +
+            `px) translateY(${initialTranslate}px) rotate(${angle}deg) translate(0, ${clockRadius}px)`;
         marksContainer.appendChild(mark);
     }
 }
