@@ -74,7 +74,7 @@ h1 {
 
 #questionContainer::before {
     position: absolute;
-    top: -2.2rem;
+    top: -2.1rem;
     left: -2px;
     padding: 0.3rem;
     background-color: #04AFFE;
