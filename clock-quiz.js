@@ -89,17 +89,24 @@ function setQuestion() {
 displayAnalogClock();
 setQuestion();
 
+function getAnswerHour() {
+    return hour + Math.floor((minute + minDiff) / 60)
+}
+
+function getAnswerMinute() {
+    return (minute + minDiff) % 60
+}
+
 submitButton.addEventListener('click', () => {
     const inputHourAndMinute = inputTime.value.split(":")
     const inputHour = Number(inputHourAndMinute[0])
     const inputMinute = Number(inputHourAndMinute[1])
-    const isCorrect = (inputHour === hour && inputMinute === minute + minDiff);
+    const isCorrect = (inputHour === getAnswerHour() && inputMinute === getAnswerMinute());
     resultMessage.textContent = isCorrect ? 'せいかい！' : 'ざんねん';
 });
 
 showAnswerButton.addEventListener('click', () => {
-    answerMinute = minute + minDiff
-    answerMessage.textContent = `こたえ： ${hour}じ${answerMinute}ふん`;
+    answerMessage.textContent = `こたえ： ${getAnswerHour()}じ${getAnswerMinute()}ふん`;
 })
 
 nextQuizButton.addEventListener('click', () => {
