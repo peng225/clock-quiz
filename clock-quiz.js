@@ -85,9 +85,20 @@ function setQuestion() {
     question.innerHTML = `${minDiff}ふんご は なんじ・なんふん でしょう？`
 }
 
+function loadCookie() {
+    if (document.cookie.split(";").some((item) => item.trim().startsWith("level="))) {
+        level = Number(document.cookie
+            .split("; ")
+            .find((row) => row.startsWith("level"))
+            .split("=")[1])
+        levelSetting.value = String(level)
+    }
+}
+
 // 初回表示
 displayAnalogClock();
 setQuestion();
+loadCookie();
 
 function getAnswerHour() {
     return ((hour + Math.floor((minute + minDiff) / 60) - 1) % 12) + 1
@@ -119,4 +130,5 @@ nextQuizButton.addEventListener('click', () => {
 
 levelSetting.addEventListener('input', () => {
     level = Number(levelSetting.value);
+    document.cookie = 'level=' + level;
 })
