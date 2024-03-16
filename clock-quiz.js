@@ -90,7 +90,7 @@ displayAnalogClock();
 setQuestion();
 
 function getAnswerHour() {
-    return hour + Math.floor((minute + minDiff) / 60)
+    return ((hour + Math.floor((minute + minDiff) / 60) - 1) % 12) + 1
 }
 
 function getAnswerMinute() {
