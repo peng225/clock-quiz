@@ -96,9 +96,9 @@ function loadCookie() {
 }
 
 // 初回表示
+loadCookie();
 displayAnalogClock();
 setQuestion();
-loadCookie();
 
 function getAnswerHour() {
     return ((hour + Math.floor((minute + minDiff) / 60) - 1) % 12) + 1
